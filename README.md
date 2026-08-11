@@ -80,6 +80,8 @@ sequenceDiagram
 
 *Fig. 2 — The daily cycle. One bundle per agent per slot; the human tap is the only path to the scoreboard.*
 
+**→ Deep dive: [inside the WhatsApp gateway](docs/gateway-deep-dive.md)** — the deterministic front door, the agentic loop, two-phase writes, the 24-hour-window engine, and the eval that gated launch.
+
 ## Production log — what actually happened
 
 The architecture above is the *end state*. Most of it was earned in production. Condensed from the project changelog (630+ entries):
