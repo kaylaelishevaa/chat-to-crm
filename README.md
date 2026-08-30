@@ -4,6 +4,8 @@
 
 `Jun–Aug 2026` · Python · SQLite (WAL) · Docker Compose · cron · Lark Base API · WhatsApp BSP API · Claude Opus + GPT (structured outputs)
 
+> The production system is private (client PII), but one component is publicly runnable: **[▶ try the listing-parser live demo](https://honest-balance-production.up.railway.app/parse)** — an open-source extract with its eval harness ([repo](https://github.com/kaylaelishevaa/real-estate-ai-platform)).
+
 | | |
 |---|---|
 | **220k+** | WhatsApp messages archived & indexed |
@@ -136,6 +138,11 @@ Traced one lead through the full chain live — chat → analyst label → Whats
 4. **Alerts have a reputation to protect.** A watchdog that emails the same backlog daily trains everyone to ignore it. State-aware gating (alert on change, weekly heartbeat, dead-man switch) is what makes an alert mean something.
 5. **Silent writes are future incidents.** A field-overwrite bug ran for 26 days because the writes never hit the audit trail. Every mutation now carries provenance — which is also what made every later root-cause analysis take hours instead of weeks.
 6. **Humans confirm; models never do.** The single most important line in the system is the one that marks a finding `unverified` after 48 h of silence instead of assuming consent.
+
+## Companion repos
+
+- **[real-estate-ai-platform](https://github.com/kaylaelishevaa/real-estate-ai-platform)** — runnable open-source extract of the listing-parser component (the pipeline's third agent), with its LLM-correctness eval harness. **[▶ Live demo](https://honest-balance-production.up.railway.app/parse)**.
+- **[pulse-case-study](https://github.com/kaylaelishevaa/pulse-case-study)** — the real-time WhatsApp ingestion & alerting system that grew alongside this pipeline: exactly-once capture, idempotent fan-out, ~460 tests.
 
 ---
 
