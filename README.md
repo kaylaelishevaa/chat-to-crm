@@ -1,6 +1,6 @@
 # chat-to-crm
 
-**Turning five agents' WhatsApp into a CRM the boss can trust** — a three-agent LLM pipeline with a deterministic watchdog, designed, shipped, and operated solo for a mid-size real-estate brokerage in Jakarta.
+**Turning five agents' WhatsApp into a CRM the boss can trust** — a multi-agent LLM pipeline with a deterministic watchdog, designed, shipped, and operated solo for a mid-size real-estate brokerage in Jakarta.
 
 `Jun–Aug 2026` · Python · SQLite (WAL) · Docker Compose · cron · Lark Base API · WhatsApp BSP API · Claude Opus + GPT (structured outputs)
 
