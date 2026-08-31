@@ -115,10 +115,10 @@ The analyst extracted `"+62 8xx… (his ISP guy)"` into a phone-typed field. The
 ### 27–30 Jul — Structural work order: 6 packages, 3 phases, 1 canary agent 🚀
 Consolidated a week of conversation-quality failures (a hijacked stale draft rewrote an agent's schedule; a repeated pending-list dump until an agent snapped "read your memory") into one spec: state sync, schedule-writer hardening, a "check memory" freeze protocol, 30-day TTLs, feature flags per package, replay tests against the named real cases. Rolled out phase-by-phase behind a single-agent canary.
 
-### 31 Jul–2 Aug — The webhook that detached itself 🔴
+### Late Jul — The webhook that detached itself 🔴
 Inbound leads stopped — the WhatsApp provider's webhook registration had silently dropped; the channel was alive, the deliveries just stopped. Two days of leads never entered the system. Re-registered via API and added a dead-man check (alert on N hours of silence). The same audit killed a subtler bug: items carried 3 days were "escalated to the digest" — **but the digest renderer for that class had never been written**, so they vanished forever. Replaced with a drip carry-over: nothing is ever dropped, only paced.
 
-### 2–3 Aug — End-to-end verification, independently re-checked
+### Final week — End-to-end verification, independently re-checked
 Traced one lead through the full chain live — chat → analyst label → WhatsApp bundle → 🔴 alert — green. Found one leak (an alert cleared on refresh before ever being delivered), root-caused and fixed it, then had the closing claims re-verified against raw data; two of my own claims were disproven and corrected in the log.
 
 ## Results
