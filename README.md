@@ -142,7 +142,7 @@ Traced one lead through the full chain live — chat → analyst label → Whats
 ## Companion repos
 
 - **[real-estate-ai-platform](https://github.com/kaylaelishevaa/real-estate-ai-platform)** — runnable open-source extract of the listing-parser component (the pipeline's third agent), with its LLM-correctness eval harness. **[▶ Live demo](https://honest-balance-production.up.railway.app/parse)**.
-- **[pulse-case-study](https://github.com/kaylaelishevaa/pulse-case-study)** — the real-time WhatsApp ingestion & alerting system that grew alongside this pipeline: exactly-once capture, idempotent fan-out, ~460 tests.
+- **[pulse-case-study](https://github.com/kaylaelishevaa/pulse-case-study)** — the real-time WhatsApp ingestion & alerting system that grew alongside this pipeline: exactly-once capture, idempotent fan-out, ~850 tests.
 
 ---
 
