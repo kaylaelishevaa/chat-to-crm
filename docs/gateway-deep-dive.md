@@ -29,7 +29,7 @@ The ordering is the point. The messages where a wrong answer is most costly — 
 The loop itself is conventional (system prompt → tool calls → final text), with a few production-shaped constraints:
 
 - **Max 8 steps, temperature 0 — enforced, not requested.** The LLM client *raises* if any call site passes a nonzero temperature. Every call is logged with full request/response for replay debugging.
-- **~34 tools, but the model never chooses who it is.** The caller's identity (`agent`, phone, permissions) is injected server-side from the phone-number registry into every tool call. There is no tool argument the model could use to act as someone else.
+- **33 tools, but the model never chooses who it is.** The caller's identity (`agent`, phone, permissions) is injected server-side from the phone-number registry into every tool call. There is no tool argument the model could use to act as someone else.
 - **Forced first tools.** Cheap heuristics pre-route obvious shapes — a bulk "done done done" reply forces a schedule lookup first; a paste of a listing URL takes a fast path that resolves and links it with no LLM at all.
 - **Grounding checks on the way out.** The most interesting one is the **anti-empty-promise guard**: if the final text claims something was saved ("noted!", "won't ask again") but no write-tool actually fired in that loop, the reply is discarded and replaced with an explicit numbered question — and an anomaly is logged. LLMs are pathologically eager to *claim* success; the guard makes the claim mechanical.
 - **Two consecutive failures → escalation.** A per-agent fail-streak counter routes the conversation into the operator digest instead of letting the bot flail.

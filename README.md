@@ -2,7 +2,7 @@
 
 **Turning five agents' WhatsApp into a CRM the boss can trust** — a multi-agent LLM pipeline with a deterministic watchdog, designed, shipped, and operated solo for a mid-size real-estate brokerage in Jakarta.
 
-`Jun–Aug 2026` · Python · SQLite (WAL) · Docker Compose · cron · Lark Base API · WhatsApp BSP API · Claude Opus + GPT (structured outputs)
+`Jun–Jul 2026` · Python · SQLite (WAL) · Docker Compose · cron · Lark Base API · WhatsApp BSP API · Claude Opus + GPT (structured outputs)
 
 > The production system is private (client PII), but one component is publicly runnable: **[▶ try the listing-parser live demo](https://honest-balance-production.up.railway.app/parse)** — an open-source extract with its eval harness ([repo](https://github.com/kaylaelishevaa/real-estate-ai-platform)).
 
@@ -11,7 +11,7 @@
 | **220k+** | WhatsApp messages archived & indexed |
 | **0** | records ever written without human confirmation |
 | **1,200+** | automated tests across three repos |
-| **16d → 2d** | worst silent-failure window, June vs. August |
+| **16d → 2d** | worst silent-failure window, June vs. July |
 | **< $35/mo** | total LLM spend, all pipelines |
 
 ---
@@ -43,7 +43,7 @@ flowchart TB
   MK -.->|"bundle waits ≤45 min"| A2
   C --> A2
   F --> A2
-  A2["AI 2 · WhatsApp gateway bot<br/>daily bundle 2×/day + agentic loop (34 tools,<br/>two-phase writes, disclosure gates)"] <-->|"one-tap confirm"| AG(("5 agents"))
+  A2["AI 2 · WhatsApp gateway bot<br/>daily bundle 2×/day + agentic loop (33 tools,<br/>two-phase writes, disclosure gates)"] <-->|"one-tap confirm"| AG(("5 agents"))
   A2 -->|"confirmed only"| ACT[("Activities<br/>KPI scoreboard")]
   W["AI 4 · Watchdog — deterministic, no LLM<br/>2×/day: output-based liveness, invariants,<br/>backlog, money-class checks"] -.->|reads| C
   W -.->|reads| F
@@ -126,7 +126,7 @@ Traced one lead through the full chain live — chat → analyst label → Whats
 - Five agents live on the pipeline daily: two analysis sweeps, two bundles, and all-day Q&A over listings, contacts, activities, and 220k+ archived messages — with hard disclosure gates.
 - KPI scoreboard integrity held: **zero auto-confirmed records**; the one rogue writer (135 unconfirmed rows) was detected, purged, and alarm-guarded.
 - Open-item backlog brought from a peak of **920 rows to 372** through triage plus structural fixes (drip carry-over, TTL, auto-close-from-evidence).
-- Worst silent-failure window shrank from **16 days (June) to ~2 days (August)** — every later outage was caught by an output-based watchdog check or a dead-man switch, and each produced a named, tested guard.
+- Worst silent-failure window shrank from **16 days (June) to ~2 days (late July)** — every later outage was caught by an output-based watchdog check or a dead-man switch, and each produced a named, tested guard.
 - Three dormant leads worth ≈ Rp 256M in potential commission surfaced by the sleeper-lead detector after being silently suppressed by two stacked guards — the finding that motivated making alert blocks deterministic and suppression-immune.
 - All of it within the LLM budget ceiling, via tiered models (small model classifies, big model extracts) and 75-thread chunked batching with split-on-choke recovery.
 
@@ -146,6 +146,6 @@ Traced one lead through the full chain live — chat → analyst label → Whats
 
 ---
 
-*Built and operated solo, Jun–Aug 2026, working heavily AI-assisted (Claude Code) — architecture, debugging, and operational decisions are my own, and every incident above is documented in the project's changelog and commit history.*
+*Built and operated solo, Jun–Jul 2026, working heavily AI-assisted (Claude Code) — architecture, debugging, and operational decisions are my own, and every incident above is documented in the project's changelog and commit history.*
 
 *Company, agents, and identifiers anonymized. Figures are from the project's own logs; detailed write-ups and a code walkthrough available on request.*
